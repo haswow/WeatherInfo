@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <title>Sales</title>
+      <link href='css/angular-notify.min.css' rel='stylesheet' type='text/css' media='all' />
+      <link href='css/custom.css' rel='stylesheet' type='text/css' media='all' />
+</head>
+<body>
+      <div id='wrapper'>
+         <div class="container" ng-controller="HomeController">
+         <div ng-show="geoLoading">
+               <p>Loading location information, please wait..</p>
+         </div>
+            <div ng-show="manual" class="manual" ng-class="weatherLoading ? 'loading' : ''">
+               <p>Please enter your city or country/postcode to get weather data</p>
+               <form novalidate class="simple-form left" name="cityform" ng-submit="cityform.$valid && getCity()">
+                     <div class="field">
+                           <label>City</label>
+                           <input type="text" ng-model="city" required />
+                     </div>
+                     <input type="submit" value="Submit" />
+               </form>
+               <form novalidate class="simple-form right" name="postcodeform" ng-submit="postcodeform.$valid && getPostcode()">
+                     <div class="field">
+                           <label>Postcode</label>
+                           <input type="text" ng-model="postcode" required />
+                     </div>
+                     <div class="field">
+                        <label>Country</label>
+                        <input type="text" ng-model="country" required />
+                  </div>
+                  <input type="submit" value="Submit" />
+            </form>
+            <div class="clearfix"></div>
+      </div>
+      <div ng-show="loadError">
+         <p ng-bind="data.message"></p>
+   </div>
+   <div ng-show="weatherLoading">
+         <p>Fetching weather information..</p>
+   </div>
+   <div class="weather-widget" ng-show="loaded" ng-class="weatherLoading ? 'loading' : ''">
+   <h1>Weather in <span ng-bind="data.name"></span>, <span ng-bind="data.sys.country"></span></h1>
+         <h2><span ng-bind="data.main.temp"></span> °C</h2>
+         <table class="table">
+            <tbody>
+               <tr>
+                  <td>Wind</td>
+                  <td><span ng-bind="data.wind.speed"></span> M/s - <span ng-bind="data.wind.deg"></span></td>
+            </tr>
+            <tr>
+                  <td>Cloudiness</td>
+                  <td><span ng-bind="data.weather[0].main"></span></td>
+            </tr>
+            <tr>
+                  <td>Pressure</td>
+                  <td><span ng-bind="data.main.pressure"></span> hPa</td>
+            </tr>
+            <tr>
+                  <td>Humidity</td>
+                  <td><span ng-bind="data.main.humidity"></span> %</td>
+            </tr>
+            <tr>
+                  <td>Sunrise</td>
+                  <td><span ng-bind="data.sys.sunrise * 1000 | date:'HH:mm'"></span></td>
+            </tr>
+            <tr>
+                  <td>Sunset</td>
+                  <td><span ng-bind="data.sys.sunset * 1000 | date:'HH:mm'"></span></td>
+            </tr>
+            <tr>
+                  <td>Geo coords</td>
+                  <td><span ng-bind="data.coord.lat"></span>, <span ng-bind="data.coord.lon"></span></td>
+            </tr>
+      </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<script src="js/lib/angular/angular.min.js"></script>
+<script src="js/lib/angular/angular-notify.min.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/services.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

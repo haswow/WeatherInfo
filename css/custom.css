@@ -1,0 +1,175 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   */
+
+   html, body, div, span, applet, object, iframe,
+   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+   a, abbr, acronym, address, big, cite, code,
+   del, dfn, em, img, ins, kbd, q, s, samp,
+   small, strike, strong, sub, sup, tt, var,
+   b, u, i, center,
+   dl, dt, dd, ol, ul, li,
+   fieldset, form, label, legend,
+   table, caption, tbody, tfoot, thead, tr, th, td,
+   article, aside, canvas, details, embed, 
+   figure, figcaption, footer, header, hgroup, 
+   menu, nav, output, ruby, section, summary,
+   time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure, 
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol, ul {
+    list-style: none;
+  }
+  blockquote, q {
+    quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  /* ---------------------------------------------------------------------------------------------------------------- */
+
+
+  /* common */
+
+  body
+  {
+    font-family: 'Arial';
+    color: #000;
+    background: #EFEFf0;
+    font-size: 16px;
+  }
+#wrapper
+ {
+  width:1024px;
+  margin: 0px auto;
+  padding: 100px 0;
+}
+.clearfix:after
+{
+  content: "";
+  display: table;
+  clear: both;
+}
+p
+{
+	padding: 20px;
+}
+a
+{
+  text-decoration: none;
+  color: inherit;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"]
+{
+  border:0;
+  outline: none;
+}
+input:focus,input:active
+{
+  outline: none;
+}
+input[type="text"],input[type="email"],input[type="password"]
+{
+  display: inline-block;
+  box-sizing:border-box;
+  height: 34px;
+  padding: 10px 0 10px 10px;
+  line-height: 1
+}
+.loading:after
+{
+	content: ' ';
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	background: rgba(255,255,255,0.5) url(../images/ajax-loader.gif) center center no-repeat;
+	z-index: 99
+}
+
+
+/* Form */
+
+.field
+{
+	padding: 10px;
+}
+.field label
+{
+	display: block;
+}
+.ng-submitted .ng-invalid
+{
+	border: 1px solid red;
+}
+form.left
+{
+	float: left;
+	width: 45%
+}
+form.right
+{
+	float: right;
+	width: 45%
+}
+.field input
+{
+	border: 1px solid #999;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+p
+{
+	text-align: center;
+}
+.manual input[type="submit"]
+{
+	margin-left: 10px;
+}
+
+/* Weather */
+
+.table
+{
+	width: 100%;
+	max-width: 600px;
+	margin: 20px auto;
+}
+.table td
+{
+	border: 1px solid #87ADD4;
+	padding: 5px;
+}
+.weather-widget h1,.weather-widget h2
+{
+	padding: 10px 0;
+	text-align: center;
+}
+.manual,.weather-widget
+{
+	position: relative;
+}
